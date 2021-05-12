@@ -1,0 +1,38 @@
+{% extends 'base.html' %}   
+{% block title %}   
+
+{% endblock %}
+{% block content %}
+
+  <div>
+    <H4>Statue-Game</H4>
+    <a id="nplay" target="_blank" href="{{ url_for('about') }}">About Game</a>
+  </div>
+    
+  <div class="music-container" id="music-container">
+    <div class="music-info">
+      <h4 id="title"></h4>
+      <div class="progress-container" id="progress-container">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+
+    <audio src="{{ url_for('static', filename='music/statue.aac') }}" type="audio/aac" id="audio"></audio>
+
+    <div class="img-container">
+      <img src="{{ url_for('static', filename='images/statue.jpg') }}" alt="music-cover" id="cover" />
+    </div>
+
+    <div class="navigation">
+
+      <button id="play" class="action-btn action-btn-big">
+        <i class="fas fa-play"></i>
+      </button>
+
+    </div>  
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}">
+    window.onload = onLoad();
+  </script>
+{% endblock %}
