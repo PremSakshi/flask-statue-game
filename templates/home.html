@@ -2,12 +2,7 @@
 {% block title %}   
 
 {% endblock %}
-{% block content %}
-
-  <div>
-    <H4>Statue-Game</H4>
-    <a id="nplay" target="_blank" href="{{ url_for('about') }}">About Game</a>
-  </div>
+{% block content %}  
     
   <div class="music-container" id="music-container">
     <div class="music-info">
@@ -19,17 +14,44 @@
 
     <audio src="{{ url_for('static', filename='music/statue.aac') }}" type="audio/aac" id="audio"></audio>
 
-    <div class="img-container">
-      <img src="{{ url_for('static', filename='images/statue.jpg') }}" alt="music-cover" id="cover" />
-    </div>
-
     <div class="navigation">
-
-      <button id="play" class="action-btn action-btn-big">
-        <i class="fas fa-play"></i>
-      </button>
-
+        <button id="play" class="action-btn action-btn-big" align="center">
+          <i class="fas fa-play"></i>
+        </button>
     </div>  
+
+  </div>
+
+  <div class="useroptions">
+    <h5>User Configurations:</h5>
+
+    <label for="statue-freq-range">Choose a Statue Repeat Freq(Hours):
+    </label>
+    <select id="statue-freq-range" name="statue-freq-range">
+      <option value="0.5">30Mins</option>
+      <option value="1" selected>1Hour</option>
+      <option value="2">2Hour</option>
+      <option value="3">3Hour</option>
+      <option value="6">6Hour</option>
+      <option value="9">9Hour</option>
+      <option value="12">12Hour</option>
+      <option value="24">1Day</option>
+    </select>
+
+    <br>
+
+    <label for="statue-over-freq-range">Choose a Statue-Over Freq(mins):</label>
+    <select id="statue-over-freq-range" name="statue-over-freq-range">
+      <option value="1" selected>1Min</option>
+      <option value="2">2Mins</option>
+      <option value="3">3Mins</option>
+    </select>
+
+  </div>  
+
+  <div>
+    <H4>Statue-Game</H4>
+    <a id="nplay" target="_blank" href="{{ url_for('about') }}">About Game</a>
   </div>
 
   <script src="{{ url_for('static', filename='script.js') }}">
